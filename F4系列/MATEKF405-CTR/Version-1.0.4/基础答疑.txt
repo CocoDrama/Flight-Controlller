@@ -1,0 +1,21 @@
+【Q1】UP的飞机配置是？
+【A1】详见视频简介https://www.bilibili.com/video/BV1KxHrzAELP/?share_source=copy_web&vd_source=66d4db59cbd1b720d96ae1352fbab08c
+
+【Q2】飞控硬件设计资料在哪？
+【A2】请链接自取：
+立创开源广场链接：https://oshwhub.com/eda_gdwvpslx/stm32f405rgt6-fei-kong 
+GitHub仓库：https://github.com/CocoDrama/Flight-Controlller.git
+GitHub源码链接自行下载4.0.4版本“Source Code”：https://github.com/betaflight/betaflight/releases?page=7
+
+【Q3】
+Q3.1: 为什么在BF地面站无法进入DFU？
+Q3.2: 为什么烧录固件时打开串口失败？
+Q3.3: 为什么激活引导DFU后无法烧录固件？
+
+【A2】原因未在Zading刷驱动，典型的驱动问题。
+Step.1 用ST-Link刷写固件并配置CLI；
+Step.2 用USB连接电脑后打开BF地面站，在设置页面引导飞控进入DFU模式（此时在地面站端口页面和设备管理器可以看到STM32 BOOTLOADER）；
+Step.3 打开Zading-列出选项“STM32 BOOTLOADER”-重装驱动-重装完成；
+Step.4 重新拔插飞控，此时可以通过两种方式实现在BF地面站烧录固件如下：
+Idea.1 默认接入地面站后，在设置页面软件引导进入DFU，然后就可以开始烧录固件；
+Idea.2 按住BOOT键连接地面站可直接进入DFU模式，然后开始正常烧录流程。
